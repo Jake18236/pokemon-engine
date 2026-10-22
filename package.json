@@ -6,6 +6,9 @@
   "description": "Local simulation-based decision support for Gen 9 Almost Any Ability",
   "engines": { "node": ">=22" },
   "scripts": {
+    "dev": "node sandbox/server.js",
+    "quality": "node scripts/quality.js",
+    "profile": "node scripts/profile-search.js",
     "test": "node --test",
     "analyze": "node src/cli.js",
     "demo": "node src/cli.js examples/aaa-position.json",

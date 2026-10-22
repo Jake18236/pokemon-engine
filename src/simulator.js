@@ -4,6 +4,18 @@ export const { Battle, Dex, PRNG, Teams, TeamValidator } = showdown;
 export const FORMAT = 'gen9almostanyability';
 export const SIMULATOR_VERSION = '0.11.11';
 
+let rulesPrepared = false;
+function prepareAAARules() {
+  if (rulesPrepared || process.env.AAA_REFERENCE_RULES === '1') return;
+  Dex.formats.load();
+  const format = Dex.formats.get(FORMAT);
+  // Upstream supports this cache slot, but AAA's rule repeal leaves it empty.
+  // Cache ONLY the final top-level unmodified AAA table, never a nested/repealed subrule.
+  // Battle mechanics read this table; mutable battle state is still restored independently.
+  format.ruleTable = Dex.formats.getRuleTable(format);
+  rulesPrepared = true;
+}
+
 export function assertFormat(battle) {
   if (battle.format.id !== FORMAT || battle.format.customRules?.length || battle.gameType !== 'singles') {
     throw new Error(`Only ${FORMAT} without custom rules is supported`);
@@ -20,6 +32,7 @@ export function restore(serialized) {
   // Snapshots are trusted internal data, but reject other formats before constructing them.
   const state = typeof serialized === 'string' ? JSON.parse(serialized) : structuredClone(serialized);
   if (state.formatid !== FORMAT) throw new Error(`Only ${FORMAT} snapshots are supported`);
+  prepareAAARules();
   const battle = Battle.fromJSON(state);
   battle.restart(() => {});
   assertFormat(battle);
@@ -27,6 +40,7 @@ export function restore(serialized) {
 }
 
 function validatedTeam(input, side) {
+  prepareAAARules();
   const team = typeof input === 'string' ? Teams.import(input) : structuredClone(input);
   if (!Array.isArray(team) || !team.length) throw new Error(`${side}: a complete team is required`);
   for (const set of team) {

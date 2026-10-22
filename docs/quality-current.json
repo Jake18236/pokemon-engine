@@ -1,0 +1,423 @@
+{
+  "measuredAt": "2026-10-22T03:59:20.879Z",
+  "simulatorVersion": "0.11.11",
+  "node": "v24.11.1",
+  "engineHash": "c0638aa09573302faf05e823576c9a1826ff4cc144cdaf42dd3822605aa5be47",
+  "met": 8,
+  "total": 9,
+  "rows": [
+    {
+      "id": "guaranteed-ko",
+      "name": "Tactic · Take the guaranteed knockout",
+      "expected": {
+        "choices": [
+          "move 1"
+        ],
+        "why": "Mold Breaker Earthquake KOs Heatran through Levitate before it acts. Setup or a weaker attack gives up a certain immediate win."
+      },
+      "search": {
+        "depth": 1,
+        "samples": 2,
+        "continuationSamples": 1,
+        "timeMs": 20000,
+        "maxNodes": 10000
+      },
+      "recommendation": "move 1",
+      "label": "Earthquake",
+      "metExpectation": true,
+      "expectedRank": 1,
+      "scoreGap": 0,
+      "completedDepth": 1,
+      "status": "complete",
+      "elapsedMs": 147.6025000000002,
+      "transitions": 18,
+      "candidates": [
+        {
+          "action": "move 1",
+          "label": "Earthquake",
+          "score": 100000
+        },
+        {
+          "action": "move 2",
+          "label": "Dragon Claw",
+          "score": -17.33847670256535
+        },
+        {
+          "action": "move 3",
+          "label": "Swords Dance",
+          "score": -31.702753727362342
+        }
+      ]
+    },
+    {
+      "id": "defensive-switch",
+      "name": "Defense · Find the safe switch",
+      "expected": {
+        "choices": [
+          "switch 2"
+        ],
+        "why": "Corviknight is threatened by Fire attacks. Heatran resists Fire and its nonstandard Earth Eater blocks the opposing Ground coverage. Prefer the defensive switch."
+      },
+      "search": {
+        "depth": 1,
+        "samples": 2,
+        "continuationSamples": 1,
+        "timeMs": 20000,
+        "maxNodes": 10000
+      },
+      "recommendation": "switch 2",
+      "label": "Switch to Heatran",
+      "metExpectation": true,
+      "expectedRank": 1,
+      "scoreGap": 0,
+      "completedDepth": 1,
+      "status": "complete",
+      "elapsedMs": 115.27460000000019,
+      "transitions": 16,
+      "candidates": [
+        {
+          "action": "switch 2",
+          "label": "Switch to Heatran",
+          "score": 430.2446668796564
+        },
+        {
+          "action": "move 2",
+          "label": "Roost",
+          "score": 429.3291235904134
+        },
+        {
+          "action": "move 1",
+          "label": "Brave Bird",
+          "score": 347.93271961352366
+        },
+        {
+          "action": "move 3",
+          "label": "Defog",
+          "score": 340.15799659350205
+        }
+      ]
+    },
+    {
+      "id": "setup-window",
+      "name": "Planning · Use a choice-locked setup window",
+      "expected": {
+        "choices": [
+          "move 1"
+        ],
+        "why": "Heatran is Choice-locked into Flamethrower, which Flash Fire Garchomp ignores. Swords Dance uses the safe turn to improve future damage; the opponent has no reserve in this endgame."
+      },
+      "search": {
+        "depth": 2,
+        "samples": 2,
+        "continuationSamples": 1,
+        "timeMs": 20000,
+        "maxNodes": 10000
+      },
+      "recommendation": "move 1",
+      "label": "Swords Dance",
+      "metExpectation": true,
+      "expectedRank": 1,
+      "scoreGap": 0,
+      "completedDepth": 2,
+      "status": "complete",
+      "elapsedMs": 413.4363000000001,
+      "transitions": 48,
+      "candidates": [
+        {
+          "action": "move 1",
+          "label": "Swords Dance",
+          "score": 76.88057086796577
+        },
+        {
+          "action": "move 3",
+          "label": "Dragon Claw",
+          "score": 59.81794413938506
+        },
+        {
+          "action": "move 2",
+          "label": "Earthquake",
+          "score": 35.6292887448866
+        },
+        {
+          "action": "move 4",
+          "label": "Stealth Rock",
+          "score": 35.6292887448866
+        }
+      ]
+    },
+    {
+      "id": "priority",
+      "name": "Tactic · Priority beats speed",
+      "expected": {
+        "choices": [
+          "move 1"
+        ],
+        "why": "Three Seismic Tosses have weakened a faster boosted Garchomp. Lucario must use Extreme Speed to finish it before Earthquake; Close Combat moves too late."
+      },
+      "search": {
+        "depth": 1,
+        "samples": 2,
+        "continuationSamples": 1,
+        "timeMs": 20000,
+        "maxNodes": 10000
+      },
+      "recommendation": "move 1",
+      "label": "Extreme Speed",
+      "metExpectation": true,
+      "expectedRank": 1,
+      "scoreGap": 0,
+      "completedDepth": 1,
+      "status": "complete",
+      "elapsedMs": 118.67520000000013,
+      "transitions": 22,
+      "candidates": [
+        {
+          "action": "move 1",
+          "label": "Extreme Speed",
+          "score": 100000
+        },
+        {
+          "action": "switch 2",
+          "label": "Switch to Blissey",
+          "score": 139.44947482621356
+        },
+        {
+          "action": "move 2",
+          "label": "Close Combat",
+          "score": 138.57564226817547
+        },
+        {
+          "action": "move 3",
+          "label": "Swords Dance",
+          "score": 138.57564226817547
+        }
+      ]
+    },
+    {
+      "id": "recovery",
+      "name": "Defense · Recover before attacking",
+      "expected": {
+        "choices": [
+          "move 1"
+        ],
+        "why": "Blissey has taken four Seismic Tosses. Soft-Boiled restores enough health to avoid being worn down; maximizing immediate damage ignores the recovery window."
+      },
+      "search": {
+        "depth": 1,
+        "samples": 2,
+        "continuationSamples": 1,
+        "timeMs": 20000,
+        "maxNodes": 10000
+      },
+      "recommendation": "move 1",
+      "label": "Soft-Boiled",
+      "metExpectation": true,
+      "expectedRank": 1,
+      "scoreGap": 0,
+      "completedDepth": 1,
+      "status": "complete",
+      "elapsedMs": 45.30630000000019,
+      "transitions": 8,
+      "candidates": [
+        {
+          "action": "move 1",
+          "label": "Soft-Boiled",
+          "score": -22.536051707862597
+        },
+        {
+          "action": "move 4",
+          "label": "Thunder Wave",
+          "score": -66.36179180052062
+        },
+        {
+          "action": "move 2",
+          "label": "Seismic Toss",
+          "score": -90.44196631380925
+        },
+        {
+          "action": "move 3",
+          "label": "Stealth Rock",
+          "score": -116.7531303579751
+        }
+      ]
+    },
+    {
+      "id": "ability-immunity",
+      "name": "AAA · Respect Volt Absorb",
+      "expected": {
+        "choices": [
+          "move 2"
+        ],
+        "why": "Thunderbolt is blocked by Corviknight's nonstandard Volt Absorb. Primordial Sea makes Hurricane accurate, providing useful damage instead of selecting an apparently super-effective Electric attack."
+      },
+      "search": {
+        "depth": 1,
+        "samples": 2,
+        "continuationSamples": 1,
+        "timeMs": 20000,
+        "maxNodes": 10000
+      },
+      "recommendation": "move 2",
+      "label": "Hurricane",
+      "metExpectation": true,
+      "expectedRank": 1,
+      "scoreGap": 0,
+      "completedDepth": 1,
+      "status": "complete",
+      "elapsedMs": 65.02129999999988,
+      "transitions": 12,
+      "candidates": [
+        {
+          "action": "move 2",
+          "label": "Hurricane",
+          "score": 35.94757348070672
+        },
+        {
+          "action": "move 1",
+          "label": "Thunderbolt",
+          "score": -17.764500632364985
+        },
+        {
+          "action": "move 3",
+          "label": "Roost",
+          "score": -17.764500632364985
+        }
+      ]
+    },
+    {
+      "id": "hazard-management",
+      "name": "Planning · Clear hazards for the reserve",
+      "expected": {
+        "choices": [
+          "move 2"
+        ],
+        "why": "Stealth Rock threatens a reserve Moltres without Boots. Rapid Spin clears it while improving speed. This probes whether the engine values future switching safety over Knock Off's immediate damage."
+      },
+      "search": {
+        "depth": 1,
+        "samples": 2,
+        "continuationSamples": 1,
+        "timeMs": 20000,
+        "maxNodes": 10000
+      },
+      "recommendation": "move 3",
+      "label": "Knock Off",
+      "metExpectation": false,
+      "expectedRank": 3,
+      "scoreGap": 20.930632248319625,
+      "completedDepth": 1,
+      "status": "complete",
+      "elapsedMs": 165.8496,
+      "transitions": 30,
+      "candidates": [
+        {
+          "action": "move 3",
+          "label": "Knock Off",
+          "score": 514.7582114276806
+        },
+        {
+          "action": "move 1",
+          "label": "Bulk Up",
+          "score": 503.65160101721153
+        },
+        {
+          "action": "move 2",
+          "label": "Rapid Spin",
+          "score": 493.827579179361
+        },
+        {
+          "action": "move 4",
+          "label": "Headlong Rush",
+          "score": 482.0681408158339
+        },
+        {
+          "action": "switch 2",
+          "label": "Switch to Moltres",
+          "score": 396.67920213468574
+        }
+      ]
+    },
+    {
+      "id": "sacrifice",
+      "name": "Endgame · Preserve the priority win condition",
+      "expected": {
+        "choices": [
+          "move 1",
+          "move 2"
+        ],
+        "why": "Garchomp is weakened but boosted. Keep Blissey in, even if it faints, so Lucario enters safely and wins with Extreme Speed. Switching Lucario directly into Earthquake loses the win condition. Either staying move is acceptable."
+      },
+      "search": {
+        "depth": 2,
+        "samples": 2,
+        "continuationSamples": 1,
+        "timeMs": 20000,
+        "maxNodes": 10000
+      },
+      "recommendation": "move 1",
+      "label": "Seismic Toss",
+      "metExpectation": true,
+      "expectedRank": 1,
+      "scoreGap": 0,
+      "completedDepth": 2,
+      "status": "complete",
+      "elapsedMs": 533.8305,
+      "transitions": 80,
+      "candidates": [
+        {
+          "action": "move 1",
+          "label": "Seismic Toss",
+          "score": 100000
+        },
+        {
+          "action": "move 2",
+          "label": "Soft-Boiled",
+          "score": 139.44947482621356
+        },
+        {
+          "action": "switch 2",
+          "label": "Switch to Lucario",
+          "score": -100000
+        }
+      ]
+    },
+    {
+      "id": "status-over-damage",
+      "name": "Planning · Burn instead of immediate damage",
+      "expected": {
+        "choices": [
+          "move 1"
+        ],
+        "why": "No Guard makes Will-O-Wisp reliable. Burning the Choice Band physical attacker reduces later damage; this probes whether a short search prefers disruption over Psychic's immediate damage."
+      },
+      "search": {
+        "depth": 2,
+        "samples": 2,
+        "continuationSamples": 1,
+        "timeMs": 20000,
+        "maxNodes": 10000
+      },
+      "recommendation": "move 1",
+      "label": "Will-O-Wisp",
+      "metExpectation": true,
+      "expectedRank": 1,
+      "scoreGap": 0,
+      "completedDepth": 2,
+      "status": "complete",
+      "elapsedMs": 449.2745,
+      "transitions": 32,
+      "candidates": [
+        {
+          "action": "move 1",
+          "label": "Will-O-Wisp",
+          "score": -46.320955649668065
+        },
+        {
+          "action": "move 2",
+          "label": "Psychic",
+          "score": -50031.75027598231
+        }
+      ]
+    }
+  ]
+}

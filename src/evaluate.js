@@ -25,10 +25,12 @@ function features(side) {
     result.material += 300;
     result.hp += 180 * fraction;
     result.status -= STATUS_COST[pokemon.status] ?? 0;
-    // Current stored stats for reserves, simulator-modified stats for active Pokémon.
-    // These include actual EVs/IVs/nature, boosts, field, ability and item modifiers.
+    // Damage-stat modifiers can require an attacker, defender AND move (e.g. activated
+    // Flash Fire). getStat has no move context; don't trigger those handlers here.
+    // Use actual boosted stats, plus fully modified speed. Contextual damage modifiers
+    // are evaluated by the real simulated attacks, not by a fictional neutral move.
     const stats = Object.fromEntries(STATS.map(stat => [stat,
-      pokemon.isActive ? pokemon.getStat(stat) : pokemon.storedStats[stat],
+      pokemon.isActive ? pokemon.getStat(stat, false, stat !== 'spe') : pokemon.storedStats[stat],
     ]));
     result.stats += 8 * fraction * Math.log2(Math.max(1, (Math.max(stats.atk, stats.spa) + stats.def + stats.spd) / 300));
     if (pokemon.isActive) {

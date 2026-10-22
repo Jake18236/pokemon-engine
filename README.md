@@ -1,6 +1,20 @@
 # Gen 9 AAA battle analysis engine
 
-A local decision-support prototype using the **official Pokémon Showdown simulator**, pinned to `0.11.11`. It ranks legal moves and switches from a fully specified **Generation 9 Almost Any Ability** position. It does not connect to Showdown or submit moves.
+A local decision-support prototype using the **official Pokémon Showdown simulator**, pinned to `0.11.11`. It ranks legal moves and switches from a fully specified **Generation 9 Almost Any Ability** position. The interactive sandbox lets you edit teams, simulate turns, and watch two engines play locally. It never connects to the public ladder or submits live moves.
+
+## Open the battle sandbox
+
+In VS Code, choose **Terminal → New Terminal**, then run:
+
+```powershell
+npm.cmd run dev
+```
+
+Open **http://127.0.0.1:3000**. Load a scenario and click **Analyze Position**. Expand a recommendation to see the opponent's replies and sampled consequences. Choose actions for both players and click **Advance Turn**, or use **Play one turn / Play automatically**. **Pause / cancel** interrupts analysis; **Reset position** returns to the loaded starting point.
+
+Use **Create or edit a scenario** to paste or edit Showdown team exports. Save positions in your browser or import/export portable JSON files. No source-code editing is needed. Both complete teams are visible; used moves are marked separately. The example hypothesis file is available as two individual fully specified scenarios.
+
+Read the short [sandbox user guide](docs/sandbox-guide.md). If dependencies are missing after a fresh checkout, run `npm.cmd ci` once. On macOS/Linux, use `npm` in place of `npm.cmd`. To stop the server, press Ctrl+C in the terminal. It listens only on your computer's loopback address.
 
 ## Run it
 
@@ -13,6 +27,8 @@ npm run demo
 npm run analyze -- examples/aaa-six.json
 npm run analyze -- examples/ability-hypotheses.json
 npm run benchmark
+npm run quality -- --compare docs/quality-baseline.json
+npm run profile
 ```
 
 In PowerShell with script execution disabled, use `npm.cmd` instead of `npm`. The repository configuration skips optional server/database dependencies and install scripts; Showdown ships compiled simulator code. Installation requires npm registry access. No hosted service is required.
@@ -27,6 +43,8 @@ Start with [the small example](examples/aaa-position.json). Its Garchomp has Mol
 - A non-ML position evaluator and bounded one-to-three-turn search. Default: **one turn, three chance samples, 3,000 simulated transitions, five-second search budget**. Two turns are tested, but larger positions may exhaust the budget.
 - Ranked actions, heuristic scores, opponent-response tables, explanations, completed depth, timing and process-memory measurements.
 - An explicit weighted-hypothesis interface for uncertain opponent sets. No automatic hidden-set inference.
+- A local browser sandbox with visual teams/HP, a readable battle log, team editing, manual controls, cancellable background analysis, and engine-vs-engine playback.
+- Nine strategic scenarios with documented expectations and recorded recommendations/runtime. See [decision quality](docs/decision-quality.md) for the current weakness instead of treating a test pass as proof of playing strength.
 
 See [feasibility and source investigation](docs/feasibility.md), [architecture and scoring](docs/architecture.md), [JSON interface](docs/interface.md), and [benchmark results](docs/benchmarks.md).
 
@@ -48,6 +66,6 @@ Using fewer continuation samples trades random-outcome coverage for speed. It do
 
 This is a tested prototype, not a claim of strong competitive play. The heuristic weights are hand-selected. Short search misses long plans and rare random outcomes. Conservative pure-action search does not calculate a mixed-strategy equilibrium. Full information inside a hypothetical branch can overestimate what a player knows at later decisions, especially mid-turn and across hidden-set hypotheses.
 
-A live userscript is **not implemented**. A browser exposes a public protocol and the player's private request, not the server's complete battle state. Live integration still needs observation tracking, consistent hidden-state hypotheses, a transport/worker boundary and UI. The JSON interface prepares that boundary without pretending raw observations are already reconstructable. Analysis is synchronous; future UI integration should use a worker or local process.
+A live userscript is **not implemented**. A browser exposes a public protocol and the player's private request, not the server's complete battle state. Live integration still needs observation tracking and consistent hidden-state hypotheses. The sandbox runs the existing synchronous engine in a Node worker behind a small local API, so analysis does not block the browser or HTTP loop. It is a fully known local laboratory, not a client for live battles.
 
 Only the pinned AAA rules are supported. Updates to the live ladder may require a simulator upgrade and regression testing. [Licensing and dependency notices](THIRD_PARTY_NOTICES.md) cover the simulator; this repository is private and does not select a license for the owner's new code.
