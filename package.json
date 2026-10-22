@@ -1,0 +1,15 @@
+{
+  "name": "aaa-battle-engine",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Local simulation-based decision support for Gen 9 Almost Any Ability",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test",
+    "analyze": "node src/cli.js",
+    "demo": "node src/cli.js examples/aaa-position.json",
+    "benchmark": "node --expose-gc scripts/benchmark.js"
+  },
+  "dependencies": { "pokemon-showdown": "0.11.11" }
+}

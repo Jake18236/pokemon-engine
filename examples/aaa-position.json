@@ -1,0 +1,16 @@
+{
+  "format": "gen9almostanyability",
+  "seed": [1, 2, 3, 4],
+  "teams": {
+    "p1": [
+      { "species": "Garchomp", "ability": "Mold Breaker", "item": "Leftovers", "nature": "Jolly", "evs": { "atk": 252, "spd": 4, "spe": 252 }, "moves": ["Earthquake", "Dragon Claw", "Swords Dance", "Stealth Rock"] },
+      { "species": "Corviknight", "ability": "Volt Absorb", "item": "Heavy-Duty Boots", "nature": "Impish", "evs": { "hp": 252, "def": 252, "spd": 4 }, "moves": ["Brave Bird", "Roost", "U-turn", "Defog"] }
+    ],
+    "p2": [
+      { "species": "Heatran", "ability": "Levitate", "item": "Leftovers", "nature": "Bold", "evs": { "hp": 252, "def": 252, "spd": 4 }, "moves": ["Flamethrower", "Earth Power", "Protect", "Stealth Rock"] },
+      { "species": "Blissey", "ability": "Regenerator", "item": "Heavy-Duty Boots", "nature": "Bold", "evs": { "hp": 4, "def": 252, "spd": 252 }, "moves": ["Seismic Toss", "Soft-Boiled", "Thunder Wave", "Shadow Ball"] }
+    ]
+  },
+  "history": [],
+  "search": { "side": "p1", "samples": 3, "seed": 42 }
+}
