@@ -1,0 +1,24 @@
+{
+  "format": "gen9almostanyability",
+  "seed": [1, 2, 3, 4],
+  "teams": {
+    "p1": [
+      { "species": "Garchomp", "ability": "Mold Breaker", "evs": { "atk": 252, "spe": 252 }, "moves": ["Earthquake", "Dragon Claw", "Swords Dance", "Stealth Rock"] },
+      { "species": "Corviknight", "ability": "Volt Absorb", "evs": { "hp": 252, "def": 252 }, "moves": ["Brave Bird", "Roost", "U-turn", "Defog"] },
+      { "species": "Blissey", "ability": "Regenerator", "evs": { "hp": 252, "def": 252 }, "moves": ["Seismic Toss", "Soft-Boiled", "Thunder Wave", "Shadow Ball"] },
+      { "species": "Zapdos", "ability": "Magic Guard", "evs": { "spa": 252, "spe": 252 }, "moves": ["Thunderbolt", "Hurricane", "Roost", "U-turn"] },
+      { "species": "Great Tusk", "ability": "Scrappy", "evs": { "atk": 252, "spe": 252 }, "moves": ["Headlong Rush", "Close Combat", "Knock Off", "Rapid Spin"] },
+      { "species": "Mew", "ability": "Prankster", "evs": { "hp": 252, "def": 252 }, "moves": ["Psychic", "Taunt", "Will-O-Wisp", "Encore"] }
+    ],
+    "p2": [
+      { "species": "Heatran", "ability": "Levitate", "evs": { "hp": 252, "def": 252 }, "moves": ["Flamethrower", "Earth Power", "Protect", "Stealth Rock"] },
+      { "species": "Blissey", "ability": "Regenerator", "evs": { "hp": 252, "def": 252 }, "moves": ["Seismic Toss", "Soft-Boiled", "Thunder Wave", "Shadow Ball"] },
+      { "species": "Garchomp", "ability": "Earth Eater", "evs": { "atk": 252, "spe": 252 }, "moves": ["Earthquake", "Dragon Claw", "Swords Dance", "Stealth Rock"] },
+      { "species": "Corviknight", "ability": "Fluffy", "evs": { "hp": 252, "def": 252 }, "moves": ["Brave Bird", "Roost", "U-turn", "Defog"] },
+      { "species": "Zapdos", "ability": "Volt Absorb", "evs": { "spa": 252, "spe": 252 }, "moves": ["Thunderbolt", "Hurricane", "Roost", "U-turn"] },
+      { "species": "Great Tusk", "ability": "Intimidate", "evs": { "atk": 252, "spe": 252 }, "moves": ["Headlong Rush", "Close Combat", "Knock Off", "Rapid Spin"] }
+    ]
+  },
+  "history": [],
+  "search": { "depth": 1, "samples": 1, "timeMs": 10000 }
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "requestId": "example:turn-1",
+  "search": { "side": "p1", "depth": 1, "samples": 3, "timeMs": 5000, "maxNodes": 1000 },
+  "hypotheses": [
+    {
+      "id": "heatran-levitate",
+      "weight": 3,
+      "position": {
+        "format": "gen9almostanyability",
+        "teams": {
+          "p1": [{ "species": "Garchomp", "ability": "Regenerator", "evs": { "atk": 252 }, "moves": ["Earthquake", "Dragon Claw"] }],
+          "p2": [{ "species": "Heatran", "ability": "Levitate", "evs": { "def": 252 }, "moves": ["Flamethrower"] }]
+        }
+      }
+    },
+    {
+      "id": "heatran-earth-eater",
+      "weight": 1,
+      "position": {
+        "format": "gen9almostanyability",
+        "teams": {
+          "p1": [{ "species": "Garchomp", "ability": "Regenerator", "evs": { "atk": 252 }, "moves": ["Earthquake", "Dragon Claw"] }],
+          "p2": [{ "species": "Heatran", "ability": "Earth Eater", "evs": { "def": 252 }, "moves": ["Flamethrower"] }]
+        }
+      }
+    }
+  ]
+}
