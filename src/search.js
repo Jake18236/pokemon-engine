@@ -80,12 +80,27 @@ export function analyze(battle, options = {}) {
       for (const response of replies) {
         const values = [];
         const terms = {};
+        const consequences = ply === 0 ? { samples: sampleCount, sampleLog: [],
+          ...Object.fromEntries(['p1', 'p2'].map(id => [id, { meanHpPercent: 0, minLiving: Infinity, maxLiving: 0, active: [], statuses: [] }])) } : null;
         for (let sample = 0; sample < sampleCount; sample++) {
           checkBudget();
           const branch = restore(serialized);
           try {
             branch.prng = new PRNG(sampleSeed(seed, ply, sample));
+            const logStart = branch.log.length;
             advance(branch, { [side]: action.choice, [foe]: response.choice });
+            if (consequences) {
+              if (sample === 0) consequences.sampleLog = branch.log.slice(logStart).filter(line => !line.startsWith('|t:|'));
+              for (const id of ['p1', 'p2']) {
+                const team = branch[id].pokemon;
+                const info = consequences[id];
+                info.meanHpPercent += team.reduce((sum, p) => sum + p.hp / p.maxhp, 0) / team.length * 100 / sampleCount;
+                const living = team.filter(p => p.hp > 0).length;
+                info.minLiving = Math.min(info.minLiving, living); info.maxLiving = Math.max(info.maxLiving, living);
+                info.active = [...new Set([...info.active, ...branch[id].active.map(p => p.species.name)])];
+                info.statuses = [...new Set([...info.statuses, ...team.filter(p => p.status && p.hp > 0).map(p => `${p.species.name}: ${p.status}`)])];
+              }
+            }
             nodes++;
             measure();
             // Keep pivot/replacement decisions explicit; never auto-pick a switch.
@@ -96,7 +111,7 @@ export function analyze(battle, options = {}) {
           } finally { branch.destroy(); }
         }
         responses.push({ action: response.id, label: response.label, mean: average(values),
-          min: Math.min(...values), max: Math.max(...values), terms });
+          min: Math.min(...values), max: Math.max(...values), terms, ...(consequences ? { consequences } : {}) });
         // Exact pure-maximin cutoff on internal rows only: another opponent reply cannot
         // improve this row's minimum. Keep root diagnostics complete and preserve ties.
         const bound = responses.at(-1).mean;

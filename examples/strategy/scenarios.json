@@ -1,0 +1,681 @@
+[
+  {
+    "id": "guaranteed-ko",
+    "name": "Tactic · Take the guaranteed knockout",
+    "expected": {
+      "choices": [
+        "move 1"
+      ],
+      "why": "Mold Breaker Earthquake KOs Heatran through Levitate before it acts. Setup or a weaker attack gives up a certain immediate win."
+    },
+    "search": {
+      "depth": 1,
+      "samples": 2,
+      "continuationSamples": 1,
+      "timeMs": 20000,
+      "maxNodes": 10000
+    },
+    "position": {
+      "format": "gen9almostanyability",
+      "seed": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "teams": {
+        "p1": [
+          {
+            "species": "Garchomp",
+            "ability": "Mold Breaker",
+            "moves": [
+              "Earthquake",
+              "Dragon Claw",
+              "Swords Dance"
+            ],
+            "evs": {
+              "atk": 252,
+              "spd": 4,
+              "spe": 252
+            },
+            "nature": "Jolly"
+          }
+        ],
+        "p2": [
+          {
+            "species": "Heatran",
+            "ability": "Levitate",
+            "moves": [
+              "Flamethrower",
+              "Earth Power",
+              "Stealth Rock"
+            ],
+            "evs": {
+              "hp": 252,
+              "def": 252,
+              "spd": 4
+            },
+            "nature": "Bold"
+          }
+        ]
+      },
+      "history": []
+    }
+  },
+  {
+    "id": "defensive-switch",
+    "name": "Defense · Find the safe switch",
+    "expected": {
+      "choices": [
+        "switch 2"
+      ],
+      "why": "Corviknight is threatened by Fire attacks. Heatran resists Fire and its nonstandard Earth Eater blocks the opposing Ground coverage. Prefer the defensive switch."
+    },
+    "search": {
+      "depth": 1,
+      "samples": 2,
+      "continuationSamples": 1,
+      "timeMs": 20000,
+      "maxNodes": 10000
+    },
+    "position": {
+      "format": "gen9almostanyability",
+      "seed": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "teams": {
+        "p1": [
+          {
+            "species": "Corviknight",
+            "ability": "Volt Absorb",
+            "moves": [
+              "Brave Bird",
+              "Roost",
+              "Defog"
+            ],
+            "evs": {
+              "hp": 252,
+              "def": 252,
+              "spd": 4
+            },
+            "nature": "Bold"
+          },
+          {
+            "species": "Heatran",
+            "ability": "Earth Eater",
+            "moves": [
+              "Flamethrower",
+              "Earth Power"
+            ],
+            "evs": {
+              "hp": 252,
+              "def": 252,
+              "spd": 4
+            },
+            "nature": "Bold"
+          }
+        ],
+        "p2": [
+          {
+            "species": "Heatran",
+            "ability": "Levitate",
+            "moves": [
+              "Flamethrower",
+              "Earth Power"
+            ],
+            "evs": {
+              "hp": 252,
+              "def": 252,
+              "spd": 4
+            },
+            "nature": "Bold"
+          }
+        ]
+      },
+      "history": []
+    }
+  },
+  {
+    "id": "setup-window",
+    "name": "Planning · Use a choice-locked setup window",
+    "expected": {
+      "choices": [
+        "move 1"
+      ],
+      "why": "Heatran is Choice-locked into Flamethrower, which Flash Fire Garchomp ignores. Swords Dance uses the safe turn to improve future damage; the opponent has no reserve in this endgame."
+    },
+    "search": {
+      "depth": 2,
+      "samples": 2,
+      "continuationSamples": 1,
+      "timeMs": 20000,
+      "maxNodes": 10000
+    },
+    "position": {
+      "format": "gen9almostanyability",
+      "seed": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "teams": {
+        "p1": [
+          {
+            "species": "Garchomp",
+            "ability": "Flash Fire",
+            "moves": [
+              "Swords Dance",
+              "Earthquake",
+              "Dragon Claw",
+              "Stealth Rock"
+            ],
+            "evs": {
+              "atk": 252,
+              "spd": 4,
+              "spe": 252
+            },
+            "nature": "Jolly"
+          }
+        ],
+        "p2": [
+          {
+            "species": "Heatran",
+            "ability": "Levitate",
+            "moves": [
+              "Flamethrower",
+              "Earth Power",
+              "Flash Cannon",
+              "Protect"
+            ],
+            "evs": {
+              "hp": 252,
+              "def": 252,
+              "spd": 4
+            },
+            "nature": "Bold",
+            "item": "Choice Specs"
+          }
+        ]
+      },
+      "history": [
+        {
+          "p1": "move 4",
+          "p2": "move 1"
+        }
+      ]
+    }
+  },
+  {
+    "id": "priority",
+    "name": "Tactic · Priority beats speed",
+    "expected": {
+      "choices": [
+        "move 1"
+      ],
+      "why": "Three Seismic Tosses have weakened a faster boosted Garchomp. Lucario must use Extreme Speed to finish it before Earthquake; Close Combat moves too late."
+    },
+    "search": {
+      "depth": 1,
+      "samples": 2,
+      "continuationSamples": 1,
+      "timeMs": 20000,
+      "maxNodes": 10000
+    },
+    "position": {
+      "format": "gen9almostanyability",
+      "seed": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "teams": {
+        "p1": [
+          {
+            "species": "Blissey",
+            "ability": "Regenerator",
+            "moves": [
+              "Seismic Toss"
+            ],
+            "evs": {
+              "hp": 252,
+              "def": 252,
+              "spd": 4
+            },
+            "nature": "Bold"
+          },
+          {
+            "species": "Lucario",
+            "ability": "Adaptability",
+            "moves": [
+              "Extreme Speed",
+              "Close Combat",
+              "Swords Dance"
+            ],
+            "evs": {
+              "atk": 252,
+              "spd": 4,
+              "spe": 252
+            },
+            "nature": "Jolly"
+          }
+        ],
+        "p2": [
+          {
+            "species": "Garchomp",
+            "ability": "Mold Breaker",
+            "moves": [
+              "Earthquake",
+              "Swords Dance"
+            ],
+            "evs": {
+              "atk": 252,
+              "spd": 4,
+              "spe": 252
+            },
+            "nature": "Jolly"
+          }
+        ]
+      },
+      "history": [
+        {
+          "p1": "move 1",
+          "p2": "move 2"
+        },
+        {
+          "p1": "move 1",
+          "p2": "move 2"
+        },
+        {
+          "p1": "move 1",
+          "p2": "move 2"
+        },
+        {
+          "p1": "switch 2",
+          "p2": "move 2"
+        }
+      ]
+    }
+  },
+  {
+    "id": "recovery",
+    "name": "Defense · Recover before attacking",
+    "expected": {
+      "choices": [
+        "move 1"
+      ],
+      "why": "Blissey has taken four Seismic Tosses. Soft-Boiled restores enough health to avoid being worn down; maximizing immediate damage ignores the recovery window."
+    },
+    "search": {
+      "depth": 1,
+      "samples": 2,
+      "continuationSamples": 1,
+      "timeMs": 20000,
+      "maxNodes": 10000
+    },
+    "position": {
+      "format": "gen9almostanyability",
+      "seed": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "teams": {
+        "p1": [
+          {
+            "species": "Blissey",
+            "ability": "Magic Guard",
+            "moves": [
+              "Soft-Boiled",
+              "Seismic Toss",
+              "Stealth Rock",
+              "Thunder Wave"
+            ],
+            "evs": {
+              "hp": 252,
+              "def": 252,
+              "spd": 4
+            },
+            "nature": "Bold"
+          }
+        ],
+        "p2": [
+          {
+            "species": "Chansey",
+            "ability": "No Guard",
+            "moves": [
+              "Seismic Toss"
+            ],
+            "evs": {
+              "hp": 252,
+              "def": 252,
+              "spd": 4
+            },
+            "nature": "Bold"
+          }
+        ]
+      },
+      "history": [
+        {
+          "p1": "move 3",
+          "p2": "move 1"
+        },
+        {
+          "p1": "move 3",
+          "p2": "move 1"
+        },
+        {
+          "p1": "move 3",
+          "p2": "move 1"
+        },
+        {
+          "p1": "move 3",
+          "p2": "move 1"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ability-immunity",
+    "name": "AAA · Respect Volt Absorb",
+    "expected": {
+      "choices": [
+        "move 2"
+      ],
+      "why": "Thunderbolt is blocked by Corviknight's nonstandard Volt Absorb. Primordial Sea makes Hurricane accurate, providing useful damage instead of selecting an apparently super-effective Electric attack."
+    },
+    "search": {
+      "depth": 1,
+      "samples": 2,
+      "continuationSamples": 1,
+      "timeMs": 20000,
+      "maxNodes": 10000
+    },
+    "position": {
+      "format": "gen9almostanyability",
+      "seed": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "teams": {
+        "p1": [
+          {
+            "species": "Zapdos",
+            "ability": "Primordial Sea",
+            "moves": [
+              "Thunderbolt",
+              "Hurricane",
+              "Roost"
+            ],
+            "evs": {
+              "spa": 252,
+              "spd": 4,
+              "spe": 252
+            },
+            "nature": "Timid"
+          }
+        ],
+        "p2": [
+          {
+            "species": "Corviknight",
+            "ability": "Volt Absorb",
+            "moves": [
+              "Brave Bird",
+              "Body Press"
+            ],
+            "evs": {
+              "hp": 252,
+              "def": 252,
+              "spd": 4
+            },
+            "nature": "Bold"
+          }
+        ]
+      },
+      "history": []
+    }
+  },
+  {
+    "id": "hazard-management",
+    "name": "Planning · Clear hazards for the reserve",
+    "expected": {
+      "choices": [
+        "move 2"
+      ],
+      "why": "Stealth Rock threatens a reserve Moltres without Boots. Rapid Spin clears it while improving speed. This probes whether the engine values future switching safety over Knock Off's immediate damage."
+    },
+    "search": {
+      "depth": 1,
+      "samples": 2,
+      "continuationSamples": 1,
+      "timeMs": 20000,
+      "maxNodes": 10000
+    },
+    "position": {
+      "format": "gen9almostanyability",
+      "seed": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "teams": {
+        "p1": [
+          {
+            "species": "Great Tusk",
+            "ability": "Regenerator",
+            "moves": [
+              "Bulk Up",
+              "Rapid Spin",
+              "Knock Off",
+              "Headlong Rush"
+            ],
+            "evs": {
+              "atk": 252,
+              "spd": 4,
+              "spe": 252
+            },
+            "nature": "Jolly"
+          },
+          {
+            "species": "Moltres",
+            "ability": "Flame Body",
+            "moves": [
+              "Flamethrower",
+              "Roost",
+              "Hurricane"
+            ],
+            "evs": {
+              "hp": 252,
+              "def": 252,
+              "spd": 4
+            },
+            "nature": "Bold"
+          }
+        ],
+        "p2": [
+          {
+            "species": "Skarmory",
+            "ability": "Well-Baked Body",
+            "moves": [
+              "Stealth Rock",
+              "Roost",
+              "Body Press"
+            ],
+            "evs": {
+              "hp": 252,
+              "def": 252,
+              "spd": 4
+            },
+            "nature": "Bold",
+            "item": "Leftovers"
+          }
+        ]
+      },
+      "history": [
+        {
+          "p1": "move 1",
+          "p2": "move 1"
+        }
+      ]
+    }
+  },
+  {
+    "id": "sacrifice",
+    "name": "Endgame · Preserve the priority win condition",
+    "expected": {
+      "choices": [
+        "move 1",
+        "move 2"
+      ],
+      "why": "Garchomp is weakened but boosted. Keep Blissey in, even if it faints, so Lucario enters safely and wins with Extreme Speed. Switching Lucario directly into Earthquake loses the win condition. Either staying move is acceptable."
+    },
+    "search": {
+      "depth": 2,
+      "samples": 2,
+      "continuationSamples": 1,
+      "timeMs": 20000,
+      "maxNodes": 10000
+    },
+    "position": {
+      "format": "gen9almostanyability",
+      "seed": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "teams": {
+        "p1": [
+          {
+            "species": "Blissey",
+            "ability": "Natural Cure",
+            "moves": [
+              "Seismic Toss",
+              "Soft-Boiled"
+            ],
+            "evs": {
+              "hp": 252,
+              "def": 252,
+              "spd": 4
+            },
+            "nature": "Bold"
+          },
+          {
+            "species": "Lucario",
+            "ability": "Adaptability",
+            "moves": [
+              "Extreme Speed",
+              "Close Combat"
+            ],
+            "evs": {
+              "atk": 252,
+              "spd": 4,
+              "spe": 252
+            },
+            "nature": "Jolly"
+          }
+        ],
+        "p2": [
+          {
+            "species": "Garchomp",
+            "ability": "Mold Breaker",
+            "moves": [
+              "Earthquake",
+              "Swords Dance"
+            ],
+            "evs": {
+              "atk": 252,
+              "spd": 4,
+              "spe": 252
+            },
+            "nature": "Jolly"
+          }
+        ]
+      },
+      "history": [
+        {
+          "p1": "move 1",
+          "p2": "move 2"
+        },
+        {
+          "p1": "move 1",
+          "p2": "move 2"
+        },
+        {
+          "p1": "move 1",
+          "p2": "move 2"
+        }
+      ]
+    }
+  },
+  {
+    "id": "status-over-damage",
+    "name": "Planning · Burn instead of immediate damage",
+    "expected": {
+      "choices": [
+        "move 1"
+      ],
+      "why": "No Guard makes Will-O-Wisp reliable. Burning the Choice Band physical attacker reduces later damage; this probes whether a short search prefers disruption over Psychic's immediate damage."
+    },
+    "search": {
+      "depth": 2,
+      "samples": 2,
+      "continuationSamples": 1,
+      "timeMs": 20000,
+      "maxNodes": 10000
+    },
+    "position": {
+      "format": "gen9almostanyability",
+      "seed": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "teams": {
+        "p1": [
+          {
+            "species": "Mew",
+            "ability": "No Guard",
+            "moves": [
+              "Will-O-Wisp",
+              "Psychic"
+            ],
+            "evs": {
+              "hp": 252,
+              "def": 252,
+              "spd": 4
+            },
+            "nature": "Bold"
+          }
+        ],
+        "p2": [
+          {
+            "species": "Garchomp",
+            "ability": "Tough Claws",
+            "moves": [
+              "Dragon Claw",
+              "Earthquake"
+            ],
+            "evs": {
+              "atk": 252,
+              "spd": 4,
+              "spe": 252
+            },
+            "nature": "Jolly",
+            "item": "Choice Band"
+          }
+        ]
+      },
+      "history": []
+    }
+  }
+]
